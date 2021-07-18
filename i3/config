@@ -181,7 +181,6 @@ bar {
         status_command i3status
 }
 
-exec_always feh --bg-fill $HOME/Pictures/JrS2A9n.jpeg
 exec_always compton
 
 # Set colors from Xresources
