@@ -16,7 +16,6 @@ alias ls='ls --color=auto'
 alias la='ls -a'
 alias htop='htop -t'
 alias r="ranger"
-alias bw="wal -i /home/mia/Pictures/JrS2A9n.jpeg" #This is just to re-run pywal if needed
 
 #PS1='[\u]'
 PS1='[\u@\h \W]\$ '
@@ -24,4 +23,4 @@ shopt -s autocd
 
 
 #Import colorschemefrom wal
-(cat /home/mia/.cache/wal/sequences)
+(cat /home/$USER/.cache/wal/sequences)
