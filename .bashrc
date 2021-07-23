@@ -10,7 +10,6 @@
 alias bye='shutdown -h now'
 alias e='exit'
 alias v='vim'
-alias sv='sudo vim'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias la='ls -a'
