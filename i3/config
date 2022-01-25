@@ -28,7 +28,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -181,11 +180,14 @@ bar {
         position top           
         font pango:Inconsolata 9
         tray_output none
-        status_command /usr/bin/bumblebee-status \
-          -m mocp disk:root cpu memory weather datetime battery \
+        status_command ~/.local/bin/bumblebee-status \
+          -m mocp disk:root cpu memory weather datetime \
           -p root.path=/ datetime.format="%H:%M %A %B" \
              mocp.format="%title" \
-          -t /home/mia/.config/bumblebee-status/themes/pywal
+             disk.format='{used}/{size}' \
+             weather.location="Rengsdorf" \
+             weather.showcity="false" \
+          -t /home/koishi/.config/bumblebee-status/themes/pywal
 
       i3bar_command i3bar --transparency 
 
@@ -203,8 +205,7 @@ bar {
     }
 }
 # To turn off city under -p use weather.showcity = false
-exec_always feh --bg-fill $HOME/Pictures/JrS2A9n.jpeg
-exec_always compton
+exec_always picom --experimental-backends
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use
@@ -228,6 +229,7 @@ client.background       $bg
 
 bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 bindsym $mod+b exec qutebrowser
+bindsym Print  exec "~/Scripts/dmenu/screenshot.sh"
 
 for_window [class="^.*"] border pixel 2
 
